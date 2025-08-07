@@ -29,14 +29,14 @@ class Paxini:
         self.config_file = os.path.join(
             os.path.dirname(os.path.dirname(os.path.abspath(__file__))), "configs/configs.yaml"
         )
-        self.n_taxels = 120
-        self.n_modules = len(con_ids)
+        self.n_taxels = 120     # 单个的传感器数量 
+        self.n_modules = len(con_ids)   # 模块数量
         # ------------------------------
 
         print("Please execute: 'sudo chmod 666 /dev/ttyACM0'")
 
-        self.ser = serial.Serial("/dev/ttyACM0", baudrate=460800, timeout=1.0)
-        self.control_box_mode = 0x05  # GEN2-DP-M2826's mode is 5
+        self.ser = serial.Serial("/dev/ttyACM0", baudrate=460800, timeout=1.0)     # 串口
+        self.control_box_mode = 0x05  # GEN2-DP-M2826's mode is 5  # GEN2-DP-M2826's mode is 5
         self.con_ids = con_ids  # thumb, index, middle, ring
 
         # load the config yaml file
@@ -200,20 +200,21 @@ class Paxini:
         num_bytes = addr_end - addr_begin + 1
         data = [0x7B] + extract_low_high_byte(addr_begin) + extract_low_high_byte(num_bytes)
         packet = self.build_protocol(fix_id, index, main_cmd, sub_cmd, length, data)
-        self.ser.write(packet)
+        self.ser.write(packet)    # 写指令
 
-        response = self.ser.read(17 + 6 + num_bytes)
+        response = self.ser.read(17 + 6 + num_bytes)    #读读数据
         self.check_response(response)
 
         data = self.extract_data(response)
         sensing_data = data[6:]
+        # 重塑为120行3列的矩阵，表示120个触觉单元的3D力值（x, y, z）。
         sensing_data_array = np.asarray(list(map(int, sensing_data))).reshape(120, 3)
 
         # Data of x/y axis is two's complement. Convert them from 0~255 to -128~127
-        xy = sensing_data_array[:, 0:2]
+        xy = sensing_data_array[:, 0:2]    #硬件返回的x/y轴数据为单字节（0-255），需转换为有符号整数（-128~127）。
         xy = np.where(xy >= 128, xy - 256, xy)
-        sensing_data_array[:, 0:2] = xy
-        return sensing_data_array
+        sensing_data_array[:, 0:2] = xy   
+        return sensing_data_array    #确保x/y轴数据范围正确，避免数值溢出。
 
     def get_all_module_sensing_data(self):
         """
