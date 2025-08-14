@@ -14,37 +14,37 @@ GET http://127.0.0.1:10088/hand/status
 
 //状态查询示例响应
 {
-    "taskId": "get_hand_status_1XXX",                           // string - 任务ID             
-    "taskType": "get_status",                                   // string - 任务类型
-    "taskStatus": "FINISHED",                                   // string - 任务状态
-    "taskResult": {                                             // object - 任务结果
-        "left_hand": {                                          // object - 左手状态
-            "status": "ONLINE",                                 // string - ONLINE/OFFLINE 
-            "fingers":[                                         // array<object> - 手指数组
-                {   "name": "thumb",                            // string - 手指名称            
-                    "joints":[0.001, 0.001, 0.001, 0.001],      // array<double> - 关节角度 [0,1]
-                    "motorForce":[0.001, 0.001, 0.001, 0.001],  // array<double> - 电机传感器 [0,1]
-                    "fingerTip_force": [0.001, 0.001, 0.001, 0.001] // array<double> - 三维力（单位N）
+    "taskId": "get_hand_status_1XXX",                                   // string - 任务ID             
+    "taskType": "get_status",                                           // string - 任务类型
+    "taskStatus": "FINISHED",                                           // string - 任务状态     FINISHED, FAILED
+    "taskResult": {                                                     // object - 任务结果
+        "left_hand": {                                                  // object - 左手状态
+            "status": "ONLINE",                                         // string - 在线状态      ONLINE、OFFLINE 
+            "fingers":[                                                 // array<object> - 手指数组
+                {   "name": "thumb",                                    // string - 手指名称            
+                    "joints":[0.001, 0.001, 0.001, 0.001],              // array<double> - 关节角度 [0,1]  精确到0.001
+                    "motorForce":[0.001, 0.001, 0.001, 0.001],          // array<double> - 电机传感器 [0,1] 精确到0.001
+                    "fingerTip_force": [0.1, 0.1, 0.1]     // array<double> - 三维力-指尖传感器合力（单位N） 精确到0.1
                 },
                 {   "name": "Index",                      
-                    "joints":[0,0,0,0],
-                    "motorForce":[0,0,0,0],
-                    "fingerTip_force": [0,0,0]
+                    "joints":[0.001, 0.001, 0.001, 0.001],
+                    "motorForce":[0.001, 0.001, 0.001, 0.001],
+                    "fingerTip_force": [0.1, 0.1, 0.1]
                 },
                 {   "name":"Middle",                       
-                    "joints":[0,0,0,0],
-                    "motorForce":[0,0,0,0],
-                    "fingerTip_force": [0,0,0]
+                    "joints":[0.001, 0.001, 0.001, 0.001],
+                    "motorForce":[0.001, 0.001, 0.001, 0.001],
+                    "fingerTip_force": [0.1, 0.1, 0.1]
                 },
                 {   "name": "Ring",                        
-                    "joints":[0,0,0,0],
-                    "motorForce":[0,0,0,0],
-                    "fingerTip_force": [0,0,0]
+                    "joints":[0.001, 0.001, 0.001, 0.001],
+                    "motorForce":[0.001, 0.001, 0.001, 0.001],
+                    "fingerTip_force": [0.1, 0.1, 0.1]
                 },
                 {   "name": "Pinky",                      
-                    "joints":[0,0,0,0],
-                    "motorForce":[0,0,0,0],
-                    "fingerTip_force": [0,0,0]
+                    "joints":[0.001, 0.001, 0.001, 0.001],
+                    "motorForce":[0.001, 0.001, 0.001, 0.001],
+                    "fingerTip_force": [0.1, 0.1, 0.1]
                 }
             ]
         },
@@ -52,29 +52,29 @@ GET http://127.0.0.1:10088/hand/status
             "status": "ONLINE", 
             "fingers":[                            
                 {   "name": "thumb",                          
-                    "joints":[0,0,0,0],
-                    "motorForce":[0,0,0,0],
-                    "fingerTip_force": [0,0,0]
+                    "joints":[0.001, 0.001, 0.001, 0.001],
+                    "motorForce":[0.001, 0.001, 0.001, 0.001],
+                    "fingerTip_force": [0.1, 0.1, 0.1]
                 },
                 {   "name": "Index",                      
-                    "joints":[0,0,0,0],
-                    "motorForce":[0,0,0,0],
-                    "fingerTip_force": [0,0,0]
+                    "joints":[0.001, 0.001, 0.001, 0.001],
+                    "motorForce":[0.001, 0.001, 0.001, 0.001],
+                    "fingerTip_force": [0.1, 0.1, 0.1]
                 },
                 {   "name":"Middle",                       
-                    "joints":[0,0,0,0],
-                    "motorForce":[0,0,0,0],
-                    "fingerTip_force": [0,0,0]
+                    "joints":[0.001, 0.001, 0.001, 0.001],
+                    "motorForce":[0.001, 0.001, 0.001, 0.001],
+                    "fingerTip_force": [0.1, 0.1, 0.1]
                 },
                 {   "name": "Ring",                        
-                    "joints":[0,0,0,0],
-                    "motorForce":[0,0,0,0],
-                    "fingerTip_force": [0,0,0]
+                    "joints":[0.001, 0.001, 0.001, 0.001],
+                    "motorForce":[0.001, 0.001, 0.001, 0.001],
+                    "fingerTip_force": [0.1, 0.1, 0.1]
                 },
                 {   "name": "Pinky",                      
-                    "joints":[0,0,0,0],
-                    "motorForce":[0,0,0,0],
-                    "fingerTip_force": [0,0,0]
+                    "joints":[0.001, 0.001, 0.001, 0.001],
+                    "motorForce":[0.001, 0.001, 0.001, 0.001],
+                    "fingerTip_force": [0.1, 0.1, 0.1]
                 }
             ]
         }
@@ -83,7 +83,9 @@ GET http://127.0.0.1:10088/hand/status
 }
 
 
-// 以手为单位, 传感器状态查询
+//  传感器状态查询  每个传感器由120个传感单元构成    这里查询的是每个传感单元的力   也即传感器的分力
+// 以手为单位查询传感器状态
+// 
 {
     "taskId": "get_sensor_status_123456",                   //string - 任务ID
     "taskType": "get_sensor_status",                        //string - 任务类型
@@ -105,43 +107,52 @@ GET http://127.0.0.1:10088/hand/status
             "fingerSensor": [                               // Array<Object> - 指定传感器名称
                 {
                     "name": "thumb",                        //string - 指定传感器名称
-                    "FingerTip": [                          // Array<Array<int>> - 传感器分力  
-                        [0,0,0],                               
-                        [0,0,0],
+                    "FingerTip": [                          // Array<Array<double>> - 传感器分力  精确到0.1
+                        [0.1, 0.1, 0.1],                               
+                        [0.1, 0.1, 0.1],
                         //···      120组
-                        [0,0,0]   
+                        [0.1, 0.1, 0.1]   
                     ]
                 },
                 {   "name": "index",
                     "FingerTip": [
-                        [0,0,0],
-                        [0,0,0],
+                
+                        [0.1, 0.1, 0.1],                               
+                        [0.1, 0.1, 0.1],
                         //···      120组
-                        [0,0,0]   
+                        [0.1, 0.1, 0.1]   
+                    ]
+                },
+                {   "name": "index",
+                    "FingerTip": [
+                        [0.1, 0.1, 0.1],
+                        [0.1, 0.1, 0.1],
+                        //···      120组
+                        [0.1, 0.1, 0.1]   
                     ]
                 },
                 {   "name": "middle",
                     "FingerTip": [
-                            [0,0,0],
-                            [0,0,0],
+                            [0.1, 0.1, 0.1],
+                            [0.1, 0.1, 0.1],
                             //···      120组
-                            [0,0,0]   
+                            [0.1, 0.1, 0.1]   
                         ]
                 },
                 {   "name": "ring",
                     "FingerTip": [
-                        [0,0,0],
-                        [0,0,0],
+                        [0.1, 0.1, 0.1],
+                        [0.1, 0.1, 0.1],
                         //···      120组
-                        [0,0,0]   
+                        [0.1, 0.1, 0.1]   
                     ]
                 },
                 {   "name": "pinky",
                     "FingerTip": [
-                        [0,0,0],
-                        [0,0,0],
+                        [0.1, 0.1, 0.1],
+                        [0.1, 0.1, 0.1],
                         //···      120组
-                        [0,0,0]   
+                        [0.1, 0.1, 0.1]   
                     ]
                 }
             ]
@@ -151,42 +162,42 @@ GET http://127.0.0.1:10088/hand/status
                 {
                     "name": "thumb",
                     "FingerTip": [                             
-                        [0,0,0],                             
-                        [0,0,0],
+                        [0.1, 0.1, 0.1],                             
+                        [0.1, 0.1, 0.1],
                         //···      120组
-                        [0,0,0]   
+                        [0.1, 0.1, 0.1]   
                     ]
                 },
                 {   "name": "index",
                     "FingerTip": [
-                        [0,0,0],
-                        [0,0,0],
+                        [0.1, 0.1, 0.1],
+                        [0.1, 0.1, 0.1],
                         //···      120组
-                        [0,0,0]   
+                        [0.1, 0.1, 0.1]   
                     ]
                 },
                 {   "name": "middle",
                     "FingerTip": [
-                            [0,0,0],
-                            [0,0,0],
+                            [0.1, 0.1, 0.1],
+                            [0.1, 0.1, 0.1],
                             //···      120组
-                            [0,0,0]   
+                            [0.1, 0.1, 0.1]   
                         ]
                 },
                 {   "name": "ring",
                     "FingerTip": [
-                        [0,0,0],
-                        [0,0,0],
+                        [0.1, 0.1, 0.1],
+                        [0.1, 0.1, 0.1],
                         //···      120组
-                        [0,0,0]   
+                        [0.1, 0.1, 0.1]   
                     ]
                 },
                 {   "name": "pinky",
                     "FingerTip": [
-                        [0,0,0],
-                        [0,0,0],
+                        [0.1, 0.1, 0.1],
+                        [0.1, 0.1, 0.1],
                         //···      120组
-                        [0,0,0]   
+                        [0.1, 0.1, 0.1]   
                     ]
                 }
             ]
@@ -200,92 +211,92 @@ GET http://127.0.0.1:10088/hand/status
 post请求: http://127.0.0.1:10088/hand/control
 
 {
-    "taskId": "sensor_zero_123456",                             //任务ID   string类型
-    "taskType": "sensor_zero",                                  //任务类型 string类型
+    "taskId": "sensor_zero_123456",                             //string - 任务ID
+    "taskType": "sensor_zero",                                  //string - 任务类型
     "taskParameters": 
     {
-	    "hand":["left_hand","right_hand"]                       // 字符串数组 Array<string> 
+	    "hand":["left_hand","right_hand"]                       //Array<string> - 手部名称 
     }
 }
 
 
 {
-    "taskId": "sensor_zero_123456",                             //任务ID   string类型
-    "taskType": "sensor_zero",                                  //任务类型 string类型
-    "taskStatus": "FINISHED",                                   //任务状态 string类型
-    "taskResult": "SUCCESS"                                     //任务结果 string类型
+    "taskId": "sensor_zero_123456",                             //string - 任务ID
+    "taskType": "sensor_zero",                                  //string - 任务类型
+    "taskStatus": "FINISHED",                                   //string - 任务完成状态   FINISHED, FAILED
+    "taskResult": "SUCCESS"                                     //string - 传感器零点设置结果 SUCCESS, FAILED
 }
 
 // 设置主动获取传感器数据模式   Fingertip_sensor
 {
-    "taskId": "auto_get_sensor_data_123456",                   //任务ID   string类型
-    "taskType": "auto_get_sensor_data",                        //任务类型 string类型
+    "taskId": "auto_get_sensor_data_123456",                   //string - 任务ID
+    "taskType": "auto_get_sensor_data",                        //string - 任务类型
     "taskParameters": 
     {
-	    "part":["left_hand","right_hand"]                      // 传感器类型 string数组 Array<string>
+	    "part":["left_hand","right_hand"]                      //Array<string> - 手部名称
     }
 }
 
 {
-    "taskId": "auto_get_sensor_data_123456",                    //任务ID   string类型
-    "taskType": "auto_get_sensor_data",                         //任务类型 string类型
-    "taskStatus": "FINISHED",                                   //任务状态 string类型
-    "taskResult": "SUCCESS"                                     //任务结果 string类型
+    "taskId": "auto_get_sensor_data_123456",                    //string - 任务ID
+    "taskType": "auto_get_sensor_data",                         //string - 任务类型
+    "taskStatus": "FINISHED",                                   //string - 任务完成状态   FINISHED, FAILED
+    "taskResult": "SUCCESS"                                     //string - 开启主动获取模式结果 SUCCESS, FAILED
 }
 
 // 停止主动获取传感器数据
 {
-    "taskId": "stop_auto_get_sensor_data_123456",               //任务ID   string类型
-    "taskType": "stop_auto_get_sensor_data",                    //任务类型 string类型
+    "taskId": "stop_auto_get_sensor_data_123456",                //string - 任务ID
+    "taskType": "stop_auto_get_sensor_data",                     //string - 任务类型
     "taskParameters": 
     {
-	    "part":["left_hand","right_hand"]                       // 传感器类型 string数组 Array<string>
+	    "part":["left_hand","right_hand"]                       //Array<string> - 手部名称
     }
 }
 
 
 {
-    "taskId": "stop_auto_get_sensor_data_123456",               //任务ID   string类型
-    "taskType": "stop_auto_get_sensor_data",                    //任务类型 string类型
-    "taskStatus": "FINISHED",                                   //任务状态 string类型
-    "taskResult": "SUCCESS"                                     //任务结果 string类型
+    "taskId": "stop_auto_get_sensor_data_123456",                //string - 任务ID
+    "taskType": "stop_auto_get_sensor_data",                    //string - 任务类型
+    "taskStatus": "FINISHED",                                   //string - 任务完成状态   FINISHED, FAILED
+    "taskResult": "SUCCESS"                                     //string - 停止主动获取传感器数据结果 SUCCESS, FAILED
 }
 
 
 
-// 紧急停止
+// 电缸紧急停止
 {
-    "taskId": "motor_e_stop_123456",                            //任务ID   string类型
-    "taskType": "motor_e_stop",                                 //任务类型 string类型
+    "taskId": "motor_e_stop_123456",                            //string - 任务ID
+    "taskType": "motor_e_stop",                                 //string - 任务类型
     "taskParameters": 
     {
-	    "part":["left_hand","right_hand"]                       // 操作部位 string数组 Array<string>
+	    "part":["left_hand","right_hand"]                       //Array<string> - 手部名称
     }
 }
 
 {
-    "taskId": "motor_e_stop_123456",                            //任务ID   string类型
-    "taskType": "auto_get_sensor_data",                         //任务类型 string类型
-    "taskStatus": "FINISHED",                                   //任务状态 string类型
-    "taskResult": "SUCCESS"                                     //任务结果 string类型
+    "taskId": "motor_e_stop_123456",                            //string - 任务ID
+    "taskType": "auto_get_sensor_data",                         //string - 任务类型
+    "taskStatus": "FINISHED",                                   //string - 任务完成状态   FINISHED, FAILED
+    "taskResult": "SUCCESS"                                     //string - 电缸紧急停止结果 SUCCESS, FAILED
 }
 
 
 //电缸故障清除
 {
-    "taskId": "clear_fault_123456",                             //任务ID   string类型
-    "taskType": "clear_fault",                                  //任务类型 string类型
+    "taskId": "clear_fault_123456",                             //string - 任务ID
+    "taskType": "clear_fault",                                  //string - 任务类型
     "taskParameters": 
     {
-	    "part":["left_hand","right_hand"]                       // 操作部位 string数组 Array<string>
+	    "part":["left_hand","right_hand"]                       // Array<string> - 手部名称
     }
 }
 
 {
-    "taskId": "clear_fault_123456",                             //任务ID   string类型
-    "taskType": "clear_fault",                                  //任务类型 string类型    
-    "taskStatus": "FINISHED",                                   //任务状态 string类型 
-    "taskResult": "SUCCESS"             
+    "taskId": "clear_fault_123456",                             //string - 任务ID
+    "taskType": "clear_fault",                                  //string - 任务类型  
+    "taskStatus": "FINISHED",                                   //string - 任务完成状态   FINISHED, FAILED
+    "taskResult": "SUCCESS"                                     //string - 电缸故障清除结果 SUCCESS, FAILED
 }
 
 
@@ -302,48 +313,48 @@ post请求: http://127.0.0.1:10088/hand/control
 
 // 手指运动控制
 {
-    "taskId": "hand_grasp_control_123456",
-    "taskType": "hand_grasp_control",                     
-    "taskParameters": 
+    "taskId": "hand_grasp_control_123456",                       //string - 任务ID
+    "taskType": "hand_grasp_control",                           //string - 任务类型
+    "taskParameters":                                                       
     {
-        "mode":"POSITION_MODE",
-        "velocity": 0.001,
-        "force": 0.001,
-        "left_hand": {                             
-            "fingers":[
-                {   "name": "thumb",  
-                    "joints":[ 0, 0, 0, 0]
+        "mode":"POSITION_MODE",                                 //string - 模式
+        "velocity": 0.001,                                      //double - 速度 取值范围[0,1]                              
+        "force": 100,                                           //int - 力
+        "left_hand": {                                          //object - 左手                         
+            "fingers":[                                         //Array<object> - 手指
+                {   "name": "thumb",                            //string - 手指名称
+                    "joints":[0.001, 0.001, 0.001, 0.001]       //Array<double> - 关节角度 取值范围[0,1] 精确到0.001
                 },
                 {   "name": "Index",                      
-                    "joints":[ 0, 0, 0, 0],
+                    "joints":[0.001, 0.001, 0.001, 0.001]
                 },
                 {   "name":"Middle",                       
-                    "joints":[ 0, 0, 0, 0],
+                    "joints":[0.001, 0.001, 0.001, 0.001]
                 },
                 {   "name": "Ring",                        
-                    "joints":[ 0, 0, 0, 0],
+                    "joints":[0.001, 0.001, 0.001, 0.001]
                 },
                 {   "name": "Pinky",                      
-                    "joints":[ 0, 0, 0, 0],
+                    "joints":[0.001, 0.001, 0.001, 0.001]
                 }
             ]
         },
         "right_hand": {                             
             "fingers":[
                 {   "name": "thumb",  
-                    "joints":[ 0, 0, 0, 0]
+                    "joints":[0.001, 0.001, 0.001, 0.001]
                 },
                 {   "name": "Index",                      
-                    "joints":[ 0, 0, 0, 0],
+                    "joints":[0.001, 0.001, 0.001, 0.001],
                 },
                 {   "name":"Middle",                       
-                    "joints":[ 0, 0, 0, 0],
+                    "joints":[0.001, 0.001, 0.001, 0.001],
                 },
                 {   "name": "Ring",                        
-                    "joints":[ 0, 0, 0, 0],
+                    "joints":[0.001, 0.001, 0.001, 0.001],
                 },
                 {   "name": "Pinky",                      
-                    "joints":[ 0, 0, 0, 0],
+                    "joints":[0.001, 0.001, 0.001, 0.001],
                 }
             ]
         }
@@ -353,11 +364,11 @@ post请求: http://127.0.0.1:10088/hand/control
 }
 // 响应
 {
-    "taskId": "hand_grasp_control_123456",                         // 任务ID    string类型
-    "taskType": "hand_grasp_control",           // 任务类型 string类型
-    "taskStatus": "FINISHED",                   // 任务状态 string类型
+    "taskId": "hand_grasp_control_123456",                           //string - 响应任务ID
+    "taskType": "hand_grasp_control",                                // string - 响应任务类型
+    "taskStatus": "FINISHED",                                        //string - 响应任务完成状态   FINISHED, FAILED
     "taskResult": {
-        "status": "SUCCESS"                     // 状态 string类型
+        "status": "SUCCESS"                                          //string - 手指运动控制结果 
             }
             
 }
