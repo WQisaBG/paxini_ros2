@@ -20,61 +20,167 @@ GET http://127.0.0.1:10088/hand/status
     "taskResult": {                                                     // object - 任务结果
         "left_hand": {                                                  // object - 左手状态
             "status": "ONLINE",                                         // string - 在线状态      ONLINE、OFFLINE 
-            "fingers":[                                                 // array<object> - 手指数组
-                {   "name": "thumb",                                    // string - 手指名称            
-                    "joints":[0.001, 0.001, 0.001, 0.001],              // array<double> - 关节角度 [0,1]  精确到0.001
-                    "motorForce":[0.001, 0.001, 0.001, 0.001],          // array<double> - 电机传感器 [0,1] 精确到0.001
-                    "fingerTip_force": [0.1, 0.1, 0.1]     // array<double> - 三维力-指尖传感器合力（单位N） 精确到0.1
+            "joints":[                                                 
+                {   "name": "thumbMCP",             //string - 关节名称  大拇指掌根关节           
+                    "pos":0.001,                    //double - 关节角度 [0,1]  精确到0.001
+                    "torque":0.001,                 //double - 电机传感器 [0,1] 精确到0.001
                 },
-                {   "name": "Index",                      
-                    "joints":[0.001, 0.001, 0.001, 0.001],
-                    "motorForce":[0.001, 0.001, 0.001, 0.001],
-                    "fingerTip_force": [0.1, 0.1, 0.1]
+                {   "name": "thumbIP",              //string - 关节名称  大拇指指间关节                  
+                    "pos":0.001,
+                    "torque":0.001,
                 },
-                {   "name":"Middle",                       
-                    "joints":[0.001, 0.001, 0.001, 0.001],
-                    "motorForce":[0.001, 0.001, 0.001, 0.001],
-                    "fingerTip_force": [0.1, 0.1, 0.1]
+                {   "name":"IndexMCP",              //string - 关节名称  食指掌根关节                       
+                    "pos":0.001,
+                    "torque":0.001,
                 },
-                {   "name": "Ring",                        
-                    "joints":[0.001, 0.001, 0.001, 0.001],
-                    "motorForce":[0.001, 0.001, 0.001, 0.001],
-                    "fingerTip_force": [0.1, 0.1, 0.1]
+                {   "name": "IndexPIP",             //string - 关节名称  近端指间关节
+                    "pos":0.001, 
+                    "torque":0.001,                     
                 },
-                {   "name": "Pinky",                      
-                    "joints":[0.001, 0.001, 0.001, 0.001],
-                    "motorForce":[0.001, 0.001, 0.001, 0.001],
-                    "fingerTip_force": [0.1, 0.1, 0.1]
+                {   "name": "IndexDIP",             //string - 关节名称  远端指间关节
+                    "pos":0.001,
+                    "torque":0.001,                     
+                },
+                {   "name":"MiddleMCP",                                                       
+                    "pos":0.001,
+                    "torque":0.001,
+                },
+                {   "name": "MiddlePIP",               
+                    "pos":0.001, 
+                    "torque":0.001,                     
+                },
+                {   "name": "MiddleDIP",            
+                    "pos":0.001,
+                    "torque":0.001,                     
+                },
+                 {   "name":"RingMCP",                                                  
+                    "pos":0.001,
+                    "torque":0.001,
+                },
+                {   "name": "RingPIP",                
+                    "pos":0.001, 
+                    "torque":0.001,                     
+                },
+                {   "name": "RingDIP",            
+                    "pos":0.001,
+                    "torque":0.001,                     
+                },
+                 {   "name":"LittleMCP",                                                       
+                    "pos":0.001,
+                    "torque":0.001,
+                },
+                {   "name": "LittlePIP",                
+                    "pos":0.001, 
+                    "torque":0.001,                     
+                },
+                {   "name": "LittleDIP",           
+                    "pos":0.001,
+                    "torque":0.001,                     
+                }
+            ],
+            "sensor":[                                                      // array<object> - 传感器状态
+                { 
+                    "name": "thumb",                                        // string - 传感器名称
+                    "force":[0.1,0.1,0.1]                                   // array<double> - 传感器力 精确到0.1  数据范围 Fx（-128 到 +127），Fy（-128 到 127），Fz（0 到255）
+                },
+                {
+                    "name": "index",
+                    "force":[0.1,0.1,0.1]
+                },
+                {
+                    "name": "middle",
+                    "force":[0.1,0.1,0.1]
+                },
+                {
+                    "name": "ring",
+                    "force":[0.1,0.1,0.1]
+                },
+                {
+                    "name": "little",
+                    "force":[0.1,0.1,0.1]
                 }
             ]
         },
         "right_hand": {                             
             "status": "ONLINE", 
-            "fingers":[                            
-                {   "name": "thumb",                          
-                    "joints":[0.001, 0.001, 0.001, 0.001],
-                    "motorForce":[0.001, 0.001, 0.001, 0.001],
-                    "fingerTip_force": [0.1, 0.1, 0.1]
+            "joints":[                                                 
+                {   "name": "thumbMCP",                     
+                    "pos":0.001,                  
+                    "torque":0.001,                
                 },
-                {   "name": "Index",                      
-                    "joints":[0.001, 0.001, 0.001, 0.001],
-                    "motorForce":[0.001, 0.001, 0.001, 0.001],
-                    "fingerTip_force": [0.1, 0.1, 0.1]
+                {   "name": "thumbIP",                              
+                    "pos":0.001,
+                    "torque":0.001,
                 },
-                {   "name":"Middle",                       
-                    "joints":[0.001, 0.001, 0.001, 0.001],
-                    "motorForce":[0.001, 0.001, 0.001, 0.001],
-                    "fingerTip_force": [0.1, 0.1, 0.1]
+                {   "name":"IndexMCP",                                   
+                    "pos":0.001,
+                    "torque":0.001,
                 },
-                {   "name": "Ring",                        
-                    "joints":[0.001, 0.001, 0.001, 0.001],
-                    "motorForce":[0.001, 0.001, 0.001, 0.001],
-                    "fingerTip_force": [0.1, 0.1, 0.1]
+                {   "name": "IndexPIP",             
+                    "pos":0.001, 
+                    "torque":0.001,                     
                 },
-                {   "name": "Pinky",                      
-                    "joints":[0.001, 0.001, 0.001, 0.001],
-                    "motorForce":[0.001, 0.001, 0.001, 0.001],
-                    "fingerTip_force": [0.1, 0.1, 0.1]
+                {   "name": "IndexDIP",            
+                    "pos":0.001,
+                    "torque":0.001,                     
+                },
+                {   "name":"MiddleMCP",                                                       
+                    "pos":0.001,
+                    "torque":0.001,
+                },
+                {   "name": "MiddlePIP",               
+                    "pos":0.001, 
+                    "torque":0.001,                     
+                },
+                {   "name": "MiddleDIP",            
+                    "pos":0.001,
+                    "torque":0.001,                     
+                },
+                 {   "name":"RingMCP",                                                  
+                    "pos":0.001,
+                    "torque":0.001,
+                },
+                {   "name": "RingPIP",                
+                    "pos":0.001, 
+                    "torque":0.001,                     
+                },
+                {   "name": "RingDIP",            
+                    "pos":0.001,
+                    "torque":0.001,                     
+                },
+                 {   "name":"LittleMCP",                                                       
+                    "pos":0.001,
+                    "torque":0.001,
+                },
+                {   "name": "LittlePIP",                
+                    "pos":0.001, 
+                    "torque":0.001,                     
+                },
+                {   "name": "LittleDIP",           
+                    "pos":0.001,
+                    "torque":0.001,                     
+                }
+            ],
+            "sensor":[
+                { 
+                    "name": "thumb",
+                    "force":[0.1,0.1,0.1]
+                },
+                {
+                    "name": "index",
+                    "force":[0.1,0.1,0.1]
+                },
+                {
+                    "name": "middle",
+                    "force":[0.1,0.1,0.1]
+                },
+                {
+                    "name": "ring",
+                    "force":[0.1,0.1,0.1]
+                },
+                {
+                    "name": "little",
+                    "force":[0.1,0.1,0.1]
                 }
             ]
         }
@@ -104,10 +210,10 @@ GET http://127.0.0.1:10088/hand/status
     "taskResult": {
         "sensor_brand_id": "XXXXXXXX",                      //string - 传感器品牌ID
         "left_hand": {
-            "fingerSensor": [                               // Array<Object> - 指定传感器名称
+            "sensor": [                               // Array<Object> - 指定传感器名称
                 {
                     "name": "thumb",                        //string - 指定传感器名称
-                    "FingerTip": [                          // Array<Array<double>> - 传感器分力  精确到0.1
+                    "FingerTip": [                          // array<double> - 传感器力 精确到0.1  数据范围 Fx（-128 到 +127），Fy（-128 到 127），Fz（0 到255）
                         [0.1, 0.1, 0.1],                               
                         [0.1, 0.1, 0.1],
                         //···      120组
@@ -158,7 +264,7 @@ GET http://127.0.0.1:10088/hand/status
             ]
         },
         "right_hand": {
-            "fingerSensor": [
+            "sensor": [
                 {
                     "name": "thumb",
                     "FingerTip": [                             
@@ -302,64 +408,109 @@ post请求: http://127.0.0.1:10088/hand/control
 
 
 
-
-
-
-
-
-
-
-
-
 // 手指运动控制
 {
     "taskId": "hand_grasp_control_123456",                       //string - 任务ID
     "taskType": "hand_grasp_control",                           //string - 任务类型
     "taskParameters":                                                       
     {
-        "mode":"POSITION_MODE",                                 //string - 模式
+        "mode":"POSITION_MODE",                                 //string - 模式  POSITION_MODE,VELOCITY_MODE,FORCE_MODE
         "velocity": 0.001,                                      //double - 速度 取值范围[0,1]                              
         "force": 100,                                           //int - 力
         "left_hand": {                                          //object - 左手                         
-            "fingers":[                                         //Array<object> - 手指
-                {   "name": "thumb",                            //string - 手指名称
-                    "joints":[0.001, 0.001, 0.001, 0.001]       //Array<double> - 关节角度 取值范围[0,1] 精确到0.001
+            "joints":[                                                 
+                {   "name": "thumbMCP",             //string - 关节名称  大拇指掌根关节           
+                    "pos":0.001                    //double - 关节角度 [0,1]  精确到0.001
                 },
-                {   "name": "Index",                      
-                    "joints":[0.001, 0.001, 0.001, 0.001]
+                {   "name": "thumbIP",              //string - 关节名称  大拇指指间关节                  
+                    "pos":0.001
                 },
-                {   "name":"Middle",                       
-                    "joints":[0.001, 0.001, 0.001, 0.001]
+                {   "name":"IndexMCP",              //string - 关节名称  食指掌根关节                       
+                    "pos":0.001
                 },
-                {   "name": "Ring",                        
-                    "joints":[0.001, 0.001, 0.001, 0.001]
+                {   "name": "IndexPIP",             //string - 关节名称  近端指间关节
+                    "pos":0.001 
                 },
-                {   "name": "Pinky",                      
-                    "joints":[0.001, 0.001, 0.001, 0.001]
+                {   "name": "IndexDIP",             //string - 关节名称  远端指间关节
+                    "pos":0.001
+                },
+                {   "name":"MiddleMCP",                                                       
+                    "pos":0.001
+                },
+                {   "name": "MiddlePIP",               
+                    "pos":0.001
+                },
+                {   "name": "MiddleDIP",            
+                    "pos":0.001
+                },
+                 {   "name":"RingMCP",                                                  
+                    "pos":0.001
+                },
+                {   "name": "RingPIP",                
+                    "pos":0.001
+                },
+                {   "name": "RingDIP",            
+                    "pos":0.001
+                },
+                 {   "name":"LittleMCP",                                                       
+                    "pos":0.001
+                },
+                {   "name": "LittlePIP",                
+                    "pos":0.001
+                },
+                {   "name": "LittleDIP",           
+                    "pos":0.001
                 }
             ]
         },
         "right_hand": {                             
-            "fingers":[
-                {   "name": "thumb",  
-                    "joints":[0.001, 0.001, 0.001, 0.001]
+            "joints":[                                                 
+                {   "name": "thumbMCP",             //string - 关节名称  大拇指掌根关节           
+                    "pos":0.001                    //double - 关节角度 [0,1]  精确到0.001
                 },
-                {   "name": "Index",                      
-                    "joints":[0.001, 0.001, 0.001, 0.001],
+                {   "name": "thumbIP",              //string - 关节名称  大拇指指间关节                  
+                    "pos":0.001
                 },
-                {   "name":"Middle",                       
-                    "joints":[0.001, 0.001, 0.001, 0.001],
+                {   "name":"IndexMCP",              //string - 关节名称  食指掌根关节                       
+                    "pos":0.001
                 },
-                {   "name": "Ring",                        
-                    "joints":[0.001, 0.001, 0.001, 0.001],
+                {   "name": "IndexPIP",             //string - 关节名称  近端指间关节
+                    "pos":0.001
                 },
-                {   "name": "Pinky",                      
-                    "joints":[0.001, 0.001, 0.001, 0.001],
+                {   "name": "IndexDIP",             //string - 关节名称  远端指间关节
+                    "pos":0.001
+                },
+                {   "name":"MiddleMCP",                                                       
+                    "pos":0.001
+                },
+                {   "name": "MiddlePIP",               
+                    "pos":0.001
+                },
+                {   "name": "MiddleDIP",            
+                    "pos":0.001
+                },
+                 {   "name":"RingMCP",                                                  
+                    "pos":0.001
+                },
+                {   "name": "RingPIP",                
+                    "pos":0.001
+                },
+                {   "name": "RingDIP",            
+                    "pos":0.001
+                },
+                 {   "name":"LittleMCP",                                                       
+                    "pos":0.001
+                },
+                {   "name": "LittlePIP",                
+                    "pos":0.001
+                },
+                {   "name": "LittleDIP",           
+                    "pos":0.001
                 }
             ]
         }
     
-}
+    }
 
 }
 // 响应

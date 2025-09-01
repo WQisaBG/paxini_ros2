@@ -45,7 +45,7 @@ class Paxini:
         self.taxel_positions, self.taxel_normals = self._calculate_taxel_normals()
 
     def _calculate_taxel_normals(self):
-        taxel_positions = np.asarray(self.configs["taxel_positions"])
+        taxel_positions = np.asarray(self.configs["taxel_positions"])     # 获取传感器的位置
         point_cloud = o3d.geometry.PointCloud()
         point_cloud.points = o3d.utility.Vector3dVector(taxel_positions)
         k_neighbors = 8
@@ -53,7 +53,7 @@ class Paxini:
         point_cloud.orient_normals_consistent_tangent_plane(k_neighbors)
         taxel_normals = np.asarray(point_cloud.normals)
         taxel_normals = taxel_normals / np.linalg.norm(taxel_normals, axis=-1).reshape(self.n_taxels, 1)
-        return taxel_positions, taxel_normals
+        return taxel_positions, taxel_normals         # 返回传感器的位置和法向量
 
     def sensors_initialize(self):
         control_box_version = self.get_control_box_version()
@@ -87,7 +87,7 @@ class Paxini:
         return True
 
     def extract_data(self, res):
-        return res[12:-5]
+        return res[12:-5]     #返回 res 的切片，从索引 12 开始，到倒数第 5 个字节之前结束。
 
     def extract_error(self, res):
         return res[9]
@@ -164,7 +164,7 @@ class Paxini:
         # print(f"Set module port. con_id: {con_id}, success: {success}")
         return success
 
-    def recalibrate_one_module(self):
+    def recalibrate_one_module(self):     #向硬件发送重新校准单个传感器模块的指令
         fix_id = 0x0E
         index = 0x00
         main_cmd = 0x70
@@ -195,8 +195,8 @@ class Paxini:
         main_cmd = 0x70
         sub_cmd = [0xC0, 0x06]
         length = [0x05, 0x00]
-        addr_begin = 1038
-        addr_end = 1397
+        addr_begin = 1038       # 硬件返回的起始地址为1038
+        addr_end = 1397          # 硬件返回的结束地址为1397
         num_bytes = addr_end - addr_begin + 1
         data = [0x7B] + extract_low_high_byte(addr_begin) + extract_low_high_byte(num_bytes)
         packet = self.build_protocol(fix_id, index, main_cmd, sub_cmd, length, data)
